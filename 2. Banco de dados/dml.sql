@@ -18,18 +18,23 @@ and    ds_senha			= '1234';
 
 
 -- CS02:: cadastrar novo filme 
-INSERT INTO tb_filme (id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel, img_filme)
-	 VALUES (1, 'Harry Potter e a Camara Secreta', 'Filme bem tops', 8.2, '2012-02-11', true, '/storage/filmes/175646.jpg');
+INSERT INTO tb_filme (id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel)
+	 VALUES (1, 'Harry Potter e a Camara Secreta', 'Filme bem tops', 8.2, '2012-02-11', true');
      
-     
+-- CS02.1:: alterar imagem
+UPDATE tb_filme 
+   SET img_filme     = '/storage/filmes/175646.jpg'
+WHERE  id_filme	= 1;
+
+
+
 -- CS03:: alterar filme     
 UPDATE tb_filme 
    SET nm_filme 	 = 'Harry Potter e a Pedra Filosofal',
 	   ds_sinopse 	 = 'Filme bem tops',
 	   vl_avaliacao  = 9.5,
 	   dt_lancamento = '2010-05-03',
-	   bt_disponivel = true,
-       img_filme     = '/storage/filmes/175646.jpg'
+	   bt_disponivel = true
 WHERE  id_filme	= 1;
 
 
@@ -69,3 +74,6 @@ SELECT id_filme         id,
        img_filme        capa
 FROM tb_filme
 WHERE nm_filme 			= 1;        
+
+INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha)
+	 VALUES ('bruno', 'bruno@admin.com.br', '1234'); 
